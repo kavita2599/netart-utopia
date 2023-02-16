@@ -11,7 +11,6 @@ export function CounterCard(props) {
       <Typography
         variant='p'
         paragraph
-        className='text-white'
         style={{ ...WhiteTxt, ...theme.typography.h1 }}
       >
         {props.num}{' '}
@@ -26,7 +25,6 @@ export function CounterCard(props) {
         style={{ ...WhiteTxt, ...theme.typography.h3 }}
         variant='p'
         paragraph
-        className='text-white'
       >
         {props.content}
       </Typography>

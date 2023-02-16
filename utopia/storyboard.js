@@ -1,7 +1,6 @@
 import { Scene, Storyboard } from 'utopia-api'
 // import { App } from '/src/app.js'
 import Index from '/pages/index.js'
-import { CounterSection } from '/component/CounterSection.js'
 
 export var storyboard = (
   <Storyboard>
