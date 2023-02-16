@@ -26,9 +26,41 @@ export function CounterSection(props) {
           container
           justifyContent='space-between'
         >
-          {props.children}
+          {props.CounterD.map((x, i) => (
+            <CounterCard key={'home_section' + i} {...x} />
+          ))}
         </Grid>
       </Grid>
     </Container>
+  )
+}
+
+export function CounterCard(props) {
+  const WhiteTxt = {
+    color: `${theme.palette.primary.white}`,
+  }
+  return (
+    <Grid item xs={5} style={{ margin: '20px 0' }}>
+      <Typography
+        variant='p'
+        paragraph
+        style={{ ...WhiteTxt, ...theme.typography.h1 }}
+      >
+        {props.num}{' '}
+        <span
+          className='counter-span'
+          style={{ color: `${theme.palette.primary.main}` }}
+        >
+          +
+        </span>
+      </Typography>
+      <Typography
+        style={{ ...WhiteTxt, ...theme.typography.h3 }}
+        variant='p'
+        paragraph
+      >
+        {props.content}
+      </Typography>
+    </Grid>
   )
 }

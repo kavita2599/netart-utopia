@@ -1,4 +1,3 @@
-import { CounterCard } from '/component/CounterCard.js'
 import { CounterSection } from '/component/CounterSection.js'
 import { CounterD } from '/data/index.js'
 import { theme } from '../theme.js'
@@ -14,6 +13,7 @@ export default function Index() {
     <>
       <section id='counter' style={{ ...BgBlack }}>
         <CounterSection
+          CounterD={CounterD}
           title={
             <>
               REINVENTING DIGITAL WITH{' '}
@@ -21,12 +21,7 @@ export default function Index() {
               <span style={PrimaryColor}>INNOVATION</span>
             </>
           }
-          style={{ backgroundColor: '#424242' }}
-        >
-          {CounterD.map((x, i) => (
-            <CounterCard key={'home_section' + i} {...x} />
-          ))}
-        </CounterSection>
+        />
       </section>
     </>
   )
