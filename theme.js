@@ -17,6 +17,7 @@ export var theme = {
     h2: {
       fontSize: '2.5rem',
       lineHeight: '4rem',
+      fontWeight: 'bold',
       color: white,
     },
     h3: {

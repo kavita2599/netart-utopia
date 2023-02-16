@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { theme } from '../theme.js'
-import '/assests/css/index.css'
 
 export default function MyApp(props) {
   const { Component, pageProps } = props
