@@ -1,17 +1,28 @@
 {
-  "name": "Utopia Project",
-  "version": "0.1.0",
-  "utopia": {
-    "main-ui": "utopia/storyboard.js",
-    "html": "public/index.html",
-    "js": "src/index.js"
-  },
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
   "dependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "utopia-api": "0.4.1",
-    "react-spring": "8.0.27",
-    "@heroicons/react": "1.0.1",
-    "@emotion/react": "11.9.3"
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@material-ui/core": "latest",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
+    "clsx": "latest",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.29.0",
+    "swiper": "^9.0.5"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build-prod": "next build && next export",
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   }
 }
