@@ -1,0 +1,11 @@
+[[redirects]]
+from = "/blogs"
+to = "https://admin.netart.io/blog"
+status = 200
+force = false
+
+[[redirects]]
+from = "/blog/*"
+to = "https://admin.netart.io/blog/:splat"
+status = 200
+force = false
