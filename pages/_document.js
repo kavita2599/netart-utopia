@@ -1,74 +1,77 @@
-import React from 'react'
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-} from 'next/document'
-import { ServerStyleSheets } from '@material-ui/core/styles'
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { InitializeColorMode } from "theme-ui";
+import Seo from "../components/Seo"
 
-export default class MyDocument extends Document {
+export default class extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
+  }
   render() {
+    // Replace html lang attribute value with your language.
     return (
-      <Html lang='en'>
+      <Html lang="en">
         <Head>
-          <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+          <meta name="robots" content="index, follow" />
+          <link rel="stylesheet" href="/swiper-bundle.css" />
+          <link rel="icon" href="/images/Icon.png" />
+          <link rel="stylesheet" href="/animate.css" />
+          <link rel="stylesheet" href="/template.css" />
+          <link rel="stylesheet" href="/bootstrap.css" />
+          <Seo />
+          <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "NETART",
+            "alternateName": "NETART - INDIA",
+            "url": "https://netart.io/",
+            "logo": "(add logo url)",
+            "sameAs": [
+              "https://www.facebook.com/netart.io",
+              "https://twitter.com/NetArt_India",
+              "https://www.instagram.com/_netart_/",
+              "https://www.linkedin.com/company/netart-india"
+            ]
+          })
+        }}
+      />
+          <meta name="google-site-verification" content="ethLFHMeKjzOOaltydV3epBfd0sgAeMoE2yaxsJAXLs" />
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-9SBKTCGHTR"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9SBKTCGHTR', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
           />
         </Head>
         <body>
+          <InitializeColorMode />
           <Main />
+          <form style={{display:"none"}} netlify="true" name="contactForm" method="POST" data-netlify="true">
+          <input  type="text" name="name" label="Name"  title="Name should not contains any numeric letters" pattern="[A-Za-z ]{1,32}"  placeholder="Name"  required/>
+          <input   label="Email" type="mail" name="email" title="Please enter a valid email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email"  required/>
+          <input  label="Mobile Number" type="tel" name="phone"  className="phone" placeholder="Phone" required />
+          <textarea  placeholder="Message" label="Message" type="text" name="msg" required/>
+        <button type="submit"  className="contactFormbtn"><span> Submit</span></button>
+        </form>
           <NextScript />
         </body>
       </Html>
-    )
-  }
-}
-
-// `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with server-side generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
-  // Resolution order
-  //
-  // On the server:
-  // 1. app.getInitialProps
-  // 2. page.getInitialProps
-  // 3. document.getInitialProps
-  // 4. app.render
-  // 5. page.render
-  // 6. document.render
-  //
-  // On the server with error:
-  // 1. document.getInitialProps
-  // 2. app.render
-  // 3. page.render
-  // 4. document.render
-  //
-  // On the client
-  // 1. app.getInitialProps
-  // 2. page.getInitialProps
-  // 3. app.render
-  // 4. page.render
-
-  // Render app and page and get the context of the page with collected side effects.
-  const sheets = new ServerStyleSheets()
-  const originalRenderPage = ctx.renderPage
-
-  ctx.renderPage = () =>
-    originalRenderPage({
-      enhanceApp: (App) => (props) =>
-        sheets.collect(<App {...props} />),
-    })
-
-  const initialProps = await Document.getInitialProps(ctx)
-
-  return {
-    ...initialProps,
-    // Styles fragment is rendered after the app and page rendering finish.
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      sheets.getStyleElement(),
-    ],
+    );
   }
 }
