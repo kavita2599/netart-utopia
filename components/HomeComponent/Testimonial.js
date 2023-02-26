@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Grid, Container } from '@mui/material'
 import RevealContent from "../Animation/revealContent";
 import AnimatedHeading from "../Animation/AnimatedHeading";
 
@@ -21,14 +21,14 @@ const Testimonial = ({ children }) => {
     <section sx={Section} id="testimonials">
       <div sx={TestimonialContainer}>
         <Container>
-          <Row>
-            <Col md={12} sx={{ marginBottom: "30px" }}>
+          <Grid container>
+            <Grid item md={12} sx={{ marginBottom: "30px" }}>
               <AnimatedHeading text="Recent testimonials" />
-            </Col>
-            <Col md={12}>
+            </Grid>
+            <Grid item md={12}>
               <RevealContent>{children}</RevealContent>
-            </Col>
-          </Row>
+            </Grid>
+          </Grid>
         </Container>
       </div>
     </section>

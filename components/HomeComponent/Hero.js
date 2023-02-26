@@ -2,8 +2,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import React, { useState, useEffect, Fragment } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import styled from "styled-components";
+import { Grid, Container } from '@mui/material'
 import Typewriter from "typewriter-effect";
 
 const Hero = (props) => {
@@ -52,7 +51,7 @@ const Hero = (props) => {
       </div>
       {props.HomeBanner ? <div sx={BottomContentStyle}>
         <Container>
-          <Row>{props.children}</Row>
+          <Grid container>{props.children}</Grid >
         </Container>
       </div> : null}
     </section>

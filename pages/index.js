@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import React, { Fragment } from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+import { Grid, Container } from '@mui/material'
 import Hero from '../components/HomeComponent/Hero'
 import Cards from '../components/HomeComponent/Banner&ServicesCard'
 import ClientsOne from '../components/HomeComponent/Client&About'
@@ -186,7 +186,7 @@ const IndexPage = (props) => {
           <div sx={TeamOverlayStyle} />
           <Container>
             <AnimatedHeading text='Our Specialities' />
-            <Row>
+            <Grid container>
               {ServiceCardData.map((x, i) => (
                 <Cards
                   key={'ServicesCard' + i}
@@ -194,7 +194,7 @@ const IndexPage = (props) => {
                   Variant='Variant2'
                 />
               ))}
-            </Row>
+            </Grid>
           </Container>
         </section>
       </LazyLoadComponent>

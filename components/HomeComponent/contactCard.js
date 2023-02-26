@@ -2,41 +2,14 @@
 /* @jsx jsx */
 import { jsx, Styled, Flex } from "theme-ui";
 import React from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+import { Grid, Container } from '@mui/material'
 import AnimationContainer from "../Animation/AnimatedContainer"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ContactCard= ({imgurl,title,link,delays})=>{
 
-       return(
-        <Col sx={IconCol} md={4}>
-         <AnimationContainer animation="fadeIn" delay={delays}> 
-          < div sx={InfoPart}>
-            <div sx={IconContainer}>
-            <LazyLoadImage src={imgurl} sx={Icon} />
-            </div>
-            < div sx={Info}>
-              <Styled.h3 sx={InfoTitle}>
-               {title}
-              </Styled.h3>
-              < div sx={InfoLinkContainer}>
-                <div sx={InfoLink}>
-                  {link}
-                </div>
-              </div>
-            </div>
-          </div>
-         </AnimationContainer> 
-        </Col>
-       )
 
-
-} 
-
-export default ContactCard
-
-
-const IconCol = {
+  const IconCol = {
     mb:[null,"140px",null,null,null]
 }  
 
@@ -96,3 +69,29 @@ const InfoTitle = {
     fontFamily: "century gothic",
     textAlign: "center",
 }
+       return(
+        <Grid item sx={IconCol} md={4}>
+         <AnimationContainer animation="fadeIn" delay={delays}> 
+          < div sx={InfoPart}>
+            <div sx={IconContainer}>
+            <LazyLoadImage src={imgurl} sx={Icon} />
+            </div>
+            < div sx={Info}>
+              <Styled.h3 sx={InfoTitle}>
+               {title}
+              </Styled.h3>
+              < div sx={InfoLinkContainer}>
+                <div sx={InfoLink}>
+                  {link}
+                </div>
+              </div>
+            </div>
+          </div>
+         </AnimationContainer> 
+        </Grid>
+       )
+
+
+} 
+
+export default ContactCard
