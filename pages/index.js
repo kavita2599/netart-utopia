@@ -270,7 +270,7 @@ const IndexPage = (props) => {
           }
         >
           {clientsData.map((x, i) => (
-            <Col
+            <Grid item
               md={3}
               key={'clients' + i}
               sx={clientCol}
@@ -286,7 +286,7 @@ const IndexPage = (props) => {
               >
                 <LazyLoadImage src={x.imgurl} sx={client} />
               </AnimationContainer>
-            </Col>
+            </Grid>
           ))}
         </ClientsOne>
       </LazyLoadComponent>
