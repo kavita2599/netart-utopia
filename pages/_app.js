@@ -1,17 +1,17 @@
 /** @jsxRuntime classic */
 /**  @jsx jsx */
-import { jsx } from "theme-ui";
-import NextApp from "next/app";
-import { ThemeProvider } from "theme-ui";
-import theme from "../src/utils/theme"; // theme object from step 2
+import { jsx } from 'theme-ui'
+import NextApp from 'next/app'
+import { ThemeProvider } from 'theme-ui'
+import theme from '../theme' // theme object from step 2
 
 export default class App extends NextApp {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props
     return (
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
-    );
+    )
   }
 }
