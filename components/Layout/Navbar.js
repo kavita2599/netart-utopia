@@ -4,7 +4,7 @@ import { jsx, Styled } from "theme-ui";
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link"
-import {  Container } from '@mui/material'
+import { Container } from "react-bootstrap";
 import { FaBars, } from "react-icons/fa";
 import {IoCloseSharp} from "react-icons/io5"
 var scrollToElement = require("scroll-to-element");
@@ -69,65 +69,6 @@ class Navbar extends React.Component {
       p: [null,`${this.state.sticky ? ".5rem 0rem 0 0" : "20px 5px"}`,`${this.state.sticky ? ".5rem 0rem 0.5rem 0" : "20px 5px"}`],
     };
 
-    const navItem =(sticky,bg)=> {
-      return{
-        background: "none",
-        border: "none",
-        color: [null,`${sticky || bg ? "white" : "white"}`,`${sticky || bg ? "black" : "white"}`],
-        textDecoration:"none !important",
-        textTransform: " capitalize",
-        fontWeight: "500",
-        margin: "10px",
-        cursor:"pointer",
-        transition: ".5s",
-        outline: "none",
-        ":hover": {
-          color: "#04e5e5",
-        },
-        fontSize: [null, "11px", null, "18px"],
-      }
-    };
-    
-    const NavbarContainer = {
-      display: [null, "block", "flex"],
-      position: "relative",
-      padding: 0,
-    };
-    
-    const LogoWrapper = {
-      flex: [null, "0 0 100%", " 0 0 20%"],
-      maxWidth: [null, "100%", "20%"],
-      display: "flex",
-      justifyContent: [null, "center", "center", "flex-start"],
-      alignItems: [null,"center","start"],
-      height:"100%",
-      cursor:"pointer"
-    };
-    
-    const Toggler = (sticky)=> {
-      return{
-        color: `${sticky ? "black" : "white"}`,
-      position: "absolute",
-      right: 0,
-      top: 0,
-      display: [null, "block", "none"],
-      outline: "none",
-      }
-    };
-    
-    const NavStyle = {
-      flex: [null, "0 0 100%", "0 0 80%"],
-      p: "0",
-      maxWidth: [null, "100%", "80%"],
-      display: "flex",
-      justifyContent: [null, "center", "flex-end"],
-      alignItems: "center",
-      mt: [null, "15px", "0"],
-      bg: [null, "black", "transparent"],
-    };
-    
-    
-    
 
     return (
       <div
@@ -199,3 +140,62 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
+
+const navItem =(sticky,bg)=> {
+  return{
+    background: "none",
+    border: "none",
+    color: [null,`${sticky || bg ? "white" : "white"}`,`${sticky || bg ? "black" : "white"}`],
+    textDecoration:"none !important",
+    textTransform: " capitalize",
+    fontWeight: "500",
+    margin: "10px",
+    cursor:"pointer",
+    transition: ".5s",
+    outline: "none",
+    ":hover": {
+      color: "#04e5e5",
+    },
+    fontSize: [null, "11px", null, "18px"],
+  }
+};
+
+const NavbarContainer = {
+  display: [null, "block", "flex"],
+  position: "relative",
+  padding: 0,
+};
+
+const LogoWrapper = {
+  flex: [null, "0 0 100%", " 0 0 20%"],
+  maxWidth: [null, "100%", "20%"],
+  display: "flex",
+  justifyContent: [null, "center", "center", "flex-start"],
+  alignItems: [null,"center","start"],
+  height:"100%",
+  cursor:"pointer"
+};
+
+const Toggler = (sticky)=> {
+  return{
+    color: `${sticky ? "black" : "white"}`,
+  position: "absolute",
+  right: 0,
+  top: 0,
+  display: [null, "block", "none"],
+  outline: "none",
+  }
+};
+
+const NavStyle = {
+  flex: [null, "0 0 100%", "0 0 80%"],
+  p: "0",
+  maxWidth: [null, "100%", "80%"],
+  display: "flex",
+  justifyContent: [null, "center", "flex-end"],
+  alignItems: "center",
+  mt: [null, "15px", "0"],
+  bg: [null, "black", "transparent"],
+};
+
+

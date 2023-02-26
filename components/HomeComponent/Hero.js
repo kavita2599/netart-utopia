@@ -6,6 +6,51 @@ import { Grid, Container } from '@mui/material'
 import Typewriter from "typewriter-effect";
 
 const Hero = (props) => {
+  
+const SectionStyle = {
+  position: "relative",
+  backgroundImage: "url(/images/bg1.jpg)",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+};
+
+const OverlayStyle = {
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  backgroundColor: "rgba(0,0,0,.5)",
+};
+
+const TypeStyle = {
+  lineHeight: [null, "20px", "20px", null, null, "50px"],
+  fontFamily: "Poppins, sans-serif",
+  ml: [null, "2px", "6px"],
+  color: "white",
+  textTransform: "uppercase",
+};
+
+const ContentStyle = {
+  position: "relative",
+  zIndex: "10",
+  bottom: [null, null, null, null, "50px", 0],
+};
+
+const SeparatorStyle = {
+  height: "5px",
+  width: "50px",
+  bg: "#00D6FF",
+  mb: "30px",
+  ml: [null, "2px", "6px"],
+};
+
+const BottomContentStyle = {
+  position: [null, "relative", "relative", "absolute"],
+  width: "100%",
+  bottom: "-14%",
+  zIndex: "2",
+  bottom: [null, 0, 0, "-20%", "-20%", "-17%"],
+};
+
   const [divheight, setDivheight] = useState(0);
   const [divwidth, setDivwidth] = useState(0);
 
