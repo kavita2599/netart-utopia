@@ -222,7 +222,7 @@ const IndexPage = (props) => {
       <LazyLoadComponent>
         <section id='team' sx={TeamSectionStyle}>
           <div sx={TeamOverlayStyle} />
-          <Col md={12}>
+          <Grid item md={12}>
             <Container>
               <AnimatedHeading text='Our Founders' />
             </Container>
@@ -250,7 +250,7 @@ const IndexPage = (props) => {
                 </AnimationContainer>
               </Container>
             </div>
-          </Col>
+          </Grid>
         </section>
       </LazyLoadComponent>
       {/* CLients SEction */}
