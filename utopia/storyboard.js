@@ -14,16 +14,8 @@ export var storyboard = (
       }}
       data-label='Home'
     >
-      <Index>
-        <img
-          style={{
-            width: 72,
-            height: 72,
-            contain: 'layout',
-          }}
-          src='/editor/icons/favicons/favicon-128.png?hash=v0.1.473'
-        />
-      </Index>
+      {/* <Index /> */}
+      <div>Hello</div>
     </Scene>
   </Storyboard>
 )
