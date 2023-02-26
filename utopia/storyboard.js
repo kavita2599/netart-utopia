@@ -14,8 +14,7 @@ export var storyboard = (
       }}
       data-label='Home'
     >
-      {/* <Index /> */}
-      <div>Hello</div>
+      <Index />
     </Scene>
   </Storyboard>
 )
