@@ -2,56 +2,11 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import React, { useState, useEffect, Fragment } from "react";
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+import { Row, Col, Container } from "react-bootstrap";
+import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 
 const Hero = (props) => {
-  
-const SectionStyle = {
-  position: "relative",
-  backgroundImage: "url(/images/bg1.jpg)",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-};
-
-const OverlayStyle = {
-  width: "100%",
-  display: "flex",
-  alignItems: "center",
-  backgroundColor: "rgba(0,0,0,.5)",
-};
-
-const TypeStyle = {
-  lineHeight: [null, "20px", "20px", null, null, "50px"],
-  fontFamily: "Poppins, sans-serif",
-  ml: [null, "2px", "6px"],
-  color: "white",
-  textTransform: "uppercase",
-};
-
-const ContentStyle = {
-  position: "relative",
-  zIndex: "10",
-  bottom: [null, null, null, null, "50px", 0],
-};
-
-const SeparatorStyle = {
-  height: "5px",
-  width: "50px",
-  bg: "#00D6FF",
-  mb: "30px",
-  ml: [null, "2px", "6px"],
-};
-
-const BottomContentStyle = {
-  position: [null, "relative", "relative", "absolute"],
-  width: "100%",
-  bottom: "-14%",
-  zIndex: "2",
-  bottom: [null, 0, 0, "-20%", "-20%", "-17%"],
-};
-
   const [divheight, setDivheight] = useState(0);
   const [divwidth, setDivwidth] = useState(0);
 
@@ -81,7 +36,7 @@ const BottomContentStyle = {
       >
         <Container>
           <div sx={ContentStyle}>
-            <Styled.h1 sx={{color: "white",}}><>{props.heading1}<br /><span sx={{color: "templatePrimary",}}>{props.heading2}</span></></Styled.h1>
+            <Styled.h1 sx={{color: "white",}}><Fragment>{props.heading1}<br /><span sx={{color: "templatePrimary",}}>{props.heading2}</span></Fragment></Styled.h1>
             <div sx={SeparatorStyle} />
             {props.HomeBanner ? <div sx={TypeStyle}>
               <Typewriter
@@ -97,7 +52,7 @@ const BottomContentStyle = {
       </div>
       {props.HomeBanner ? <div sx={BottomContentStyle}>
         <Container>
-          <Grid container>{props.children}</Grid>
+          <Row>{props.children}</Row>
         </Container>
       </div> : null}
     </section>

@@ -2,13 +2,47 @@
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import React, { useState, useEffect } from 'react'
-import Grid from '@mui/material/Grid';
+import { Row, Col, Container } from 'react-bootstrap'
 import AnimationContainer from '../Animation/AnimatedContainer'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const Card = ({ image, heading, description,Variant,List,animation,delay }) => {
-    
+ var Var={
+    Variant1:{ div: { textAlign:"start",...HeroStyle },},
+    Variant2:{ div: { textAlign:"center",...ServiceCardStyle ,},margin:{m:"auto"},borderRight:{borderRight:"none"}},
+}
+
+    return (
+        <Col md={4} sx={{ ...ServiceColStyle,...(Var[Variant].borderRight) }}>
+        <AnimationContainer animation={animation ? animation : null} delay={delay}>
+            <div sx={{ ...(Var[Variant].div) }}>
+                    {/* Img Title and Description of cards */}
+                    <div sx={{ mb: "20px" }}>
+                    <LazyLoadImage src={image} sx={{ maxHeight: "70px" }}/>
+                    </div>
+                    {Variant == "Variant1"?
+                    <Styled.h2 sx={HeadingStyle}>{heading}</Styled.h2>:
+                    <Styled.h3 sx={HeadingStyle}>{heading}</Styled.h3>
+                    }
+                    <div sx={{...ServiceSeparatorStyle,...(Var[Variant].margin)}} />
+                  {description ?  <Styled.p sx={ServiceTextStyle}>
+                        {description}
+                    </Styled.p> : null}
+                    {/* List elements for services */}
+                    {List ? 
+                    <div sx={ulistStyle}>
+                        <Styled.p className="service-card-list" sx={listStyle}>{List}</Styled.p>
+                    </div>
+                   :null}
+                </div>
+                </AnimationContainer>
+        </Col>
+    )
+}
+
+export default Card
+
 const ulistStyle={
     padding: 0,
     margin: "11px 0 0 0",
@@ -40,7 +74,7 @@ const HeroStyle = {
 const ServiceCardStyle={
     marginBottom: "20px",
     padding: "40px",
-    height:"450px",
+    height:[null,"420px","510px","420px","370px"],
     color: "#fff",
     textAlign: "center",
     borderRadius: "20px",
@@ -77,37 +111,3 @@ const listStyle={
     fontWeight: "300",
     margin: "5px 0px",
 }
- var Var={
-    Variant1:{ div: { textAlign:"start",...HeroStyle },},
-    Variant2:{ div: { textAlign:"center",...ServiceCardStyle ,},margin:{m:"auto"},borderRight:{borderRight:"none"}},
-}
-
-    return (
-        <Grid item md={4} sx={{ ...ServiceColStyle,...(Var[Variant].borderRight) }}>
-        <AnimationContainer animation={animation ? animation : null} delay={delay}>
-            <div sx={{ ...(Var[Variant].div) }}>
-                    {/* Img Title and Description of cards */}
-                    <div sx={{ mb: "20px" }}>
-                    <LazyLoadImage src={image} sx={{ maxHeight: "70px" }}/>
-                    </div>
-                    {Variant == "Variant1"?
-                    <Styled.h2 sx={HeadingStyle}>{heading}</Styled.h2>:
-                    <Styled.h3 sx={HeadingStyle}>{heading}</Styled.h3>
-                    }
-                    <div sx={{...ServiceSeparatorStyle,...(Var[Variant].margin)}} />
-                  {description ?  <Styled.p sx={ServiceTextStyle}>
-                        {description}
-                    </Styled.p> : null}
-                    {/* List elements for services */}
-                    {List ? 
-                    <div sx={ulistStyle}>
-                        <Styled.p className="service-card-list" sx={listStyle}>{List}</Styled.p>
-                    </div>
-                   :null}
-                </div>
-                </AnimationContainer>
-        </Grid>
-    )
-}
-
-export default Card
